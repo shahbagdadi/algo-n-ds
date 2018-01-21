@@ -32,7 +32,6 @@ public class BinaryTreeNodeDist {
             return root;
         }
         else if (adj[root] == p || adj[root] == q) return root;
-
         else
         {
             if (x != Integer.MAX_VALUE || y != Integer.MAX_VALUE) dst++;
@@ -40,6 +39,8 @@ public class BinaryTreeNodeDist {
         }
 
     }
+
+    
     public static void main(String[] args) {
         int[] adj = {1,2,3,4,5,6,7,-1,-1,-1,-1,-1,8};
 
