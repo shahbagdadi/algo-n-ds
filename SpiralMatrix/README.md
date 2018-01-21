@@ -1,12 +1,12 @@
 # Print a Matrix in Spiral order
 
-e.g.
-X Y A
-M B C
-P Q R
-
-Output: XYACRQPMB
-
+e.g.  
+X Y A  
+M B C  
+P Q R  
+  
+Output: XYACRQPMB  
+  
 * This problem is less about logic, but more about careful index manipulation.
 * Assume a full and valid matrix. No need to spend time validating the input.
 * Matrix need not be square. It can be rectangular.
