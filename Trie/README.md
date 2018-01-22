@@ -4,4 +4,6 @@
 
 Void add(String word) 
 Boolean prefixExist(String prefix)  
-Boolean wordExist(String word)  
+Boolean wordExist(String word)
+  
+[Solution](./src/Trie.java)
