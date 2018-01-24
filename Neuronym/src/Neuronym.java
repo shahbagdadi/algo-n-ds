@@ -5,6 +5,9 @@ public class Neuronym {
     public static ArrayList<String> getNeuronym(String s){
         int l = s.length()-1, cnt = l-1;
         ArrayList<String> al = new ArrayList<>();
+        if (l < 3)
+            al.add(s);
+
         while (cnt >= 2)
         {
             for(int i = 1 ; i <= l-cnt; i++ )

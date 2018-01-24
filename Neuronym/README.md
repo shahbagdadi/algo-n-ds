@@ -8,5 +8,5 @@ e.g. for the word "batch"
 "b3h" , "ba2h" , "b2ch" etc.
 Print progressively longer strings, until there is a '2' in the permutations. There is no point of
 going below 2, because that won't compress the string.
-  
+
 [Solution](./src/Neuronym.java)
