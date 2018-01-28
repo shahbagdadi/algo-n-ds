@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- *  [Question](../README.md)
+ *  https://../README.md
  */
 
 public class PowerSet {
