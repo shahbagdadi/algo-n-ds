@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- *  <a href="../README.md">Question for this problem.</a>
+ *  [Question](../README.md)
  */
 
 public class PowerSet {
