@@ -18,8 +18,8 @@ public class skyline {
         /*
         Set the start segment as negative height. This does the following when we sort
         1. make sure the start segment comes before the end.
-        2. when pushing into the TreeMap, it is easy to distinguish whether to add or remove a segment.
-        3. when the two adjacent building share same start and end x value, the next start segment always come before due to the negative height.
+        2. when working with the TreeMap, it is easy to distinguish whether to add or remove a segment.
+        3. when the two adjacent building share same start and end x value, the next start segment always come before the end segment due to the negative height.
         */
         // Add all critical points i.e. startx and endx for all the buildings
         for (int[] b : buildings) {
