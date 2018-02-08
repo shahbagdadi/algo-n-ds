@@ -10,4 +10,4 @@ O/P : 4
 I/P : 3 3 4 2 4 4 2 4
 O/P : NONE
 
-[Solution](.src/MajorityElement.java)
+[Solution](./src/MajorityElement.java)
