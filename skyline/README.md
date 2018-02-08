@@ -9,7 +9,7 @@ Each building is represented by triplet (left, ht, right)
 ‘right': is x coordinate of right side  
 ‘ht': is height of building.  
   
-![skyline](https://leetcode.com/static/images/problemset/skyline1.jpg)
+![skyline](https://www.geeksforgeeks.org/wp-content/uploads/skyline.png)
   
 A skyline is a collection of rectangular strips. A rectangular strip is represented as a pair (left, ht)
 where left is x coordinate of left side of strip and ht is height of strip.  
@@ -33,4 +33,4 @@ Output: (1, 11), (5, 0)
 [Solution](./src/skyline.java)
 
 
-![critical point](https://leetcode.com/static/images/problemset/skyline2.jpg)
+
