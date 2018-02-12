@@ -51,5 +51,6 @@ public class PalindromeDecomposition {
     public static void main(String args[]) {
         partition("abracadabra");
         partition("banana");
+        partition("tee");
     }
 }
