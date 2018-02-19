@@ -26,7 +26,7 @@ public class StringConversion {
                                 result.addFirst(parent);
                                 parent = path.remove(parent);
                             }
-                            if (parent == beginWord)
+                            if (parent.equals(beginWord))
                                 result.addFirst(beginWord);
                             else
                                 result.addFirst(endWord);
@@ -35,7 +35,7 @@ public class StringConversion {
                                 result.addLast(parent);
                                 parent = path.remove(parent);
                             }
-                            if (parent == endWord)
+                            if (parent.equals(endWord))
                                 result.addLast(endWord);
                             else {
                                 result.addLast(beginWord);
