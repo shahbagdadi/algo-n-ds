@@ -10,3 +10,4 @@ b = "had"
 solution:
 "bat" -> "bad" -> "had"
 ```
+[Solution](./src/StringConversion.java)
