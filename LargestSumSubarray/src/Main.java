@@ -28,7 +28,7 @@ public class Main {
 
     int optMaxSubArray(int[] a) {
         int cmax = a[0], max = a[0];
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 1; i < a.length; i++) {
             cmax += a[i];
             cmax = Math.max(cmax,a[i]);
             max = Math.max(cmax,max);
