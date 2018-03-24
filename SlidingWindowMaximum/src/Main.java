@@ -21,7 +21,7 @@ public class Main {
     }
 
     // O(NlogK) O(K)
-    public int[] maxSlidingWindowTreeSet(int[] a, int k) {
+    public int[] maxSlidingWindowTreeMap(int[] a, int k) {
         int n = a.length, ri = 0, max = 0;
         if (a == null || k == 0) return new int[0];
         int[] r = new int[n + 1 - k];
@@ -59,7 +59,7 @@ public class Main {
         Main m = new Main();
         int[] a = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
 //        int[] r = m.maxSlidingWindowBF(a, 3);
-//        int[] r = m.maxSlidingWindowTreeSet(a, 3);
+//        int[] r = m.maxSlidingWindowTreeMap(a, 3);
         int[] r = m.maxSlidingWindow(a, 3);
         for (int i = 0; i < r.length; i++) {
             int i1 = r[i];
