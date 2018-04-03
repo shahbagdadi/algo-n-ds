@@ -1,4 +1,4 @@
-public class Interval implements Comparable<Interval>
+public class Interval
 {
     int start;
     int end;
@@ -8,13 +8,4 @@ public class Interval implements Comparable<Interval>
         this.end = end;
     }
 
-
-    @Override
-    public int compareTo(Interval i) {
-        if (this.start > i.start)
-            return 1;
-        else if (this.start < i.start)
-            return -1;
-        else return 0;
-    }
 }
