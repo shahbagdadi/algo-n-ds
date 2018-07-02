@@ -1,48 +1,35 @@
 import java.util.*;
 
 /**
- *  https://../README.md
+ * Time - O(n^2)
+ * Space - O(n) - Ignore the list as it is result returned
  */
-
 public class PowerSet {
 
+    public List<List<Integer>> powerSet(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        backtrack(list, new ArrayList<>(), nums, 0);
+        return list;
+    }
 
-    public static Set<Set<Integer>> PowerSet(Set<Integer> originalSet){
-        Set<Set<Integer>> sets = new HashSet<Set<Integer>>();
-        if (originalSet.isEmpty())
-        {
-            Set<Integer> set = new HashSet<Integer>();
-            sets.add(set);
-            return sets;
+    private void backtrack(List<List<Integer>> list , List<Integer> tmpList, int [] a, int start){
+        System.out.println("Add to list : " + tmpList);
+        list.add(new ArrayList<>(tmpList));
+        for(int i = start; i < a.length; i++){
+            System.out.println("add : " + a[i]);
+            tmpList.add(a[i]);
+            backtrack(list, tmpList, a, i + 1);
+            System.out.println("remove : " + a[(tmpList.size() - 1)]);
+            tmpList.remove(tmpList.size() - 1);
         }
-
-        List<Integer> list = new ArrayList<Integer>(originalSet);
-        Integer head = list.get(0);
-        Set<Integer> rest = new HashSet<Integer>(list.subList(1,list.size()));
-        for (Set<Integer> set : PowerSet(rest)){
-            HashSet<Integer> newset = new HashSet<Integer>();
-            newset.add(head);
-            newset.addAll(set);
-            sets.add(set);
-            sets.add(newset);
-        }
-        return sets;
     }
 
     public static void main(String[] args) {
-	Set<Integer> ints = new HashSet<Integer>();
-        ints.add(1);
-        ints.add(2);
-        ints.add(3);
+        PowerSet ps = new PowerSet();
+        List<List<Integer>> pset = ps.powerSet(new int[]{1,2,3});
+        // print the powerset
+        for (List<Integer> set : pset)
+            System.out.println(set);
 
-     Set<Set<Integer>> pset = PowerSet(ints);
-     // print the powerset
-        for (Set<Integer> set : pset)
-        {
-            System.out.print("{");
-            for (Integer i : set)
-                System.out.print(i + " ");
-            System.out.print("}");
-        }
     }
 }
