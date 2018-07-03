@@ -1,3 +1,7 @@
+/**
+ * Time - O(n^2)
+ * Space - O(n)
+ */
 public class NQueens {
     class Position {
         int row;
@@ -23,7 +27,7 @@ public class NQueens {
             // find a safe spot w.r.t previous row queens
             for (int i = 0; i < row; i++) {
                 Position po = pos[i];
-                if (po.col == col || row - col == po.row - po.col || row + col == po.row + po.col) {
+                if (po.col == col || po.row == row || row - col == po.row - po.col || row + col == po.row + po.col) {
                     safe = false;
                     break;
                 }
@@ -40,7 +44,7 @@ public class NQueens {
 
     public static void main(String[] args) {
         NQueens queens = new NQueens();
-        Position[] pos = queens.solveNQueens(5);
+        Position[] pos = queens.solveNQueens(3);
         if (pos != null) {
             for (int i = 0; i < pos.length; i++) {
                 Position po = pos[i];
