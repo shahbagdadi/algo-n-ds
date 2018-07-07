@@ -1,3 +1,7 @@
+/**
+ *  Time - O(N!) - where n is number of characters
+ *  Space - O(N) - where n is number of characters
+ */
 public class Main {
 
     public void printPerm(char[] a, int i)
