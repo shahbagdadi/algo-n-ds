@@ -1,18 +1,23 @@
 public class MinInRotatedArray {
 
-    public static void main(String[] args) {
-        int[] input = {4, 5, 6, 7, 9, 10,  11, 12};
-        int result = findMin(input, 0, input.length - 1);
-        System.out.println(result);
+    public int findMin(int[] a) {
+        int l = 0;
+        int h = a.length - 1;
+        while (l < h - 1) {
+            int m = l + (h - l) / 2;
+            System.out.println("l = " + l + " m = " + m + " h = " + h);
+            if (a[m] > a[h])
+                l = m;
+            else
+                h = m;
+        }
+        System.out.println("l = " + l + " h = " + h);
+        return (a[l] > a[h]) ? a[h] : a[l];
     }
-    // O(log n)
-    private static int findMin(int[] a, int l, int h) {
-        // if last 2 element then return the min as its your answer
-        if (h - l == 1) return Math.min(a[h], a[l]);
-        int mid = (h + l) / 2;
-        if (a[l] > a[mid])
-            return findMin(a, l, mid);
-        else
-            return findMin(a, mid, h);
+
+    public static void main(String[] args) {
+        MinInRotatedArray m = new MinInRotatedArray();
+        int[] input = {11, 12, 13, 4, 5};
+        System.out.println(m.findMin(input));
     }
 }
