@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
 
@@ -10,35 +8,46 @@ public class Main {
         return r;
     }
 
+    /**
+     * Uncomment result.add as per the needed Traversal
+     * @param result - List of values as per traversal order
+     * @param root - Root Node
+     */
     void helper(List<Integer> result, TreeNode root) {
         if (root == null) return;
-        //preorder
-        //result.add(root.val);
+        //result.add(root.val);         //preorder
         helper(result, root.left);
-        //inorder
-        result.add(root.val);
+        result.add(root.val);           //inorder
         helper(result, root.right);
-        //postorder
-        //result.add(root.val);
+        //result.add(root.val);         //postorder
     }
 
-    public List<Integer> iterativeTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        if (root == null) return list;
-        Stack<TreeNode> stack = new Stack<>();
-        while (root != null || !stack.empty()) {
-            while (root != null) {
-                stack.push(root);
-                //preorder
-                //list.add(root.val);
-                root = root.left;
+    /**
+     * Single iterative solution template.
+     * Concomment the lines for the traversal order desired.
+     * @param root
+     * @return - - List of values as per traversal order
+     */
+    public List<Integer> iterTraversal(TreeNode root) {
+        LinkedList<Integer> result = new LinkedList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode p = root;
+        while(!stack.isEmpty() || p != null) {
+            if(p != null) {
+                stack.push(p);
+                result.add(p.val);           // Preorder - Add parent to end of list before child
+                p = p.left;                  // Preorder & InOrder
+
+                //result.addFirst(p.val);    // PostOrder - Reverse of preorder - append to start of list
+                //p = p.right;               // PostOrder - Reverse the process of preorder
+            } else {
+                TreeNode node = stack.pop();
+                //result.add(node.val);      // InOrder - Add after all left children
+                p = node.right;              // Preorder & InOrder
+                //p = node.left;             // PostOrder - Reverse the process of preorder
             }
-            root = stack.pop();
-            //Inorder
-            list.add(root.val);
-            root = root.right;
         }
-        return list;
+        return result;
     }
 
 
@@ -53,7 +62,7 @@ public class Main {
 
         Main m = new Main();
 //        List<Integer> po = m.recursiveTraversal(root);
-        List<Integer> po = m.iterativeTraversal(root);
+        List<Integer> po = m.iterTraversal(root);
         System.out.println(po);
     }
 }
