@@ -24,7 +24,7 @@ public class Main {
 
     /**
      * Single iterative solution template.
-     * Concomment the lines for the traversal order desired.
+     * Uncomment the lines for the traversal order desired.
      * @param root
      * @return - - List of values as per traversal order
      */
@@ -39,12 +39,12 @@ public class Main {
                 p = p.left;                  // Preorder & InOrder
 
                 //result.addFirst(p.val);    // PostOrder - Reverse of preorder - append to start of list
-                //p = p.right;               // PostOrder - Reverse the process of preorder
+                //p = p.right;               // PostOrder - Reverse the traversal process of preorder
             } else {
                 TreeNode node = stack.pop();
                 //result.add(node.val);      // InOrder - Add after all left children
                 p = node.right;              // Preorder & InOrder
-                //p = node.left;             // PostOrder - Reverse the process of preorder
+                //p = node.left;             // PostOrder - Reverse the traversal process of preorder
             }
         }
         return result;
