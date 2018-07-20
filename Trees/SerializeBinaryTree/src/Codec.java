@@ -22,7 +22,7 @@ public class Codec {
      * }
      *
      */
-    public String serialize(TreeNode root) {
+    public static String serialize(TreeNode root) {
         if (root == null) return "";
         Queue<TreeNode> q = new LinkedList<>();
         StringBuilder res = new StringBuilder();
@@ -40,7 +40,8 @@ public class Codec {
         return res.toString();
     }
 
-    public TreeNode deserialize(String data) {
+
+    public static TreeNode deserialize(String data) {
         if (data == "") return null;
         Queue<TreeNode> q = new LinkedList<>();
         String[] values = data.split(" ");
