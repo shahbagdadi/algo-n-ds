@@ -22,4 +22,4 @@ Note: Do not use class member/global/static variables to store states. Your seri
 
 
 
-[Solution](./src/Main.java)
+[Solution](./src/Codec.java)
