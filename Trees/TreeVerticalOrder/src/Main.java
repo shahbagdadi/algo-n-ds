@@ -1,28 +1,51 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
-    List<List<Integer>> r = new ArrayList<>();
     public List<List<Integer>> verticalOrder(TreeNode root) {
-        if (root == null) return null;
-        inorder(root);
-        return r;
-    }
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
 
-    public void inorder(TreeNode root){
-        if (root == null) return ;
-        List<Integer> lst = new ArrayList<>();
-        verticalOrder(root.left);
-        verticalOrder(root.right);
-        lst.add(root.val);
-        if (root.left != null && root.left.right != null)
-            lst.add(root.left.right.val);
-        if (root.right != null && root.right.left != null)
-            lst.add(root.right.left.val);
-        r.add(lst);
-    }
+        Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        Queue<Integer> cols = new LinkedList<>();
 
+        q.add(root);
+        cols.add(0);
+
+        int min = 0;
+        int max = 0;
+
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            int col = cols.poll();
+
+            if (!map.containsKey(col)) {
+                map.put(col, new ArrayList<Integer>());
+            }
+            map.get(col).add(node.val);
+
+            if (node.left != null) {
+                q.add(node.left);
+                cols.add(col - 1);
+                min = Math.min(min, col - 1);
+            }
+
+            if (node.right != null) {
+                q.add(node.right);
+                cols.add(col + 1);
+                max = Math.max(max, col + 1);
+            }
+        }
+
+        for (int i = min; i <= max; i++) {
+            res.add(map.get(i));
+        }
+
+        return res;
+    }
 
     public static void main(String[] args) {
         TreeNode n1 = new TreeNode(1);
@@ -42,10 +65,7 @@ public class Main {
         List<List<Integer>> r = m.verticalOrder(n1);
         for (int i = 0; i < r.size(); i++) {
             List<Integer> integers =  r.get(i);
-            for (int j = 0; j < integers.size(); j++) {
-                System.out.print(integers.get(j) + ",");
-            }
-            System.out.println();
+            System.out.println(integers);
         }
     }
 }

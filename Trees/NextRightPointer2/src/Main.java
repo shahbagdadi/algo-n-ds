@@ -10,7 +10,7 @@ public class Main {
                 root = root.next;
             }
             root = tmpChild.next;
-            //print(root);
+            print(root);
         }
     }
 
