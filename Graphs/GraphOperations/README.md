@@ -7,7 +7,7 @@ Create a graph class which supports the following operations
 
 Example 1 : 
 
-![Sample](GraphSample.jpg)
+![Sample](https://github.com/shahbagdadi/algo-n-ds/blob/master/Graphs/GraphOperations/graphSample.jpg)
 
 
 
