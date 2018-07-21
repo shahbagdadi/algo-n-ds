@@ -7,7 +7,7 @@ Create a graph class which supports the following operations
 
 Example 1 : 
 
-![Sample](./GraphSample.jpg)
+![Sample](GraphSample.jpg)
 
 
 
