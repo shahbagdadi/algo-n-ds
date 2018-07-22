@@ -1,4 +1,4 @@
-#Merge 2 BST Trees  
+# Merge 2 BST Trees  
 Given two Binary Search Trees(BST), print the elements of both BSTs in sorted form.  
 The expected time complexity is O(m+n) where m is the number of nodes in first tree and n is the number of nodes in second tree.  
 
