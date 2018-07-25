@@ -28,14 +28,13 @@ public class Island {
 
 
     private void DFS(char[][] grid, int r, int c) {
-        if (!isValidNode(grid, r, c)) return;
         grid[r][c] = 0;
         for (int[] step : steps) {
             int row = r + step[0];
             int col = c + step[1];
             if (isValidNode(grid, row, col) && grid[row][col] == '1') {
                 //System.out.print("[" + row + "," + col + "] ");
-                grid[r][c] = 0;
+                grid[row][col] = 0;
                 DFS(grid, row, col);
             }
         }
