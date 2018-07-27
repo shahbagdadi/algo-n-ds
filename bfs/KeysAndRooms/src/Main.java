@@ -3,26 +3,22 @@ import java.util.*;
 public class Main {
 
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
-        boolean[] visited = new boolean[rooms.size()];
+        HashSet<Integer> visited = new HashSet<>();
         Queue<Integer> q = new LinkedList<>();
         q.offer(0);
         while (!q.isEmpty()) {
             int room = q.poll();
-            visited[room] = true;
-            for (int i :rooms.get(room)) {
-                if (!visited[i])
-                    q.offer(i);
-            }
+            visited.add(room);
+            for (int i :rooms.get(room))
+                if (!visited.contains(i)) q.offer(i);
         }
-        for (boolean flag : visited)
-            if (!flag) return false;
-        return true;
+        return visited.size() == rooms.size();
     }
 
     public static void main(String[] args) {
         List<Integer> r0 = new ArrayList<>();
         r0.add(1);
-        r0.add(3);
+        r0.add(2);
         List<Integer> r1 = new ArrayList<>();
         r1.add(3);
         r1.add(0);
