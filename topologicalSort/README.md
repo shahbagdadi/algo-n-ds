@@ -13,4 +13,6 @@ Similarly we can find other orders.
 Input:  words[] = {"caa", "aaa", "aab"}
 Output: Order of characters is 'c', 'a', 'b'
 ```
+
+Hint : [Topological sort](https://www.youtube.com/watch?v=ddTC4Zovtbc)
 [Solution](./src/TopologicalSort.java)
