@@ -2,23 +2,24 @@ import java.util.HashSet;
 
 public class Main {
     public ListNode getIntersectionNode(ListNode a, ListNode b) {
-        HashSet<Integer> set = new HashSet<>();
-        while (a != null || b != null)
-        {
-            //System.out.println(a + " " + b);
-            if (a!= null && !set.add(a.val))  return a;
-            if (b!= null && !set.add(b.val)) return b;
-
-            if (a!= null) a = a.next;
-            if (b!= null) b = b.next;
+        if (a == null || b == null) return null;
+        ListNode p1 = a , p2 = b;
+        while (p1 != p2) {
+            p1 = (p1 == null) ? b : p1.next;
+            p2 = (p2 == null) ? a : p2.next;
         }
-        return null;
+        return p1;
     }
 
 
     public static void main(String[] args) {
-	Main m = new Main();
-	ListNode n = m.getIntersectionNode(new ListNode(1),null);
+        Main m = new Main();
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        ListNode c = new ListNode(3);
+        b.next = c;
+        a.next = b;
+        ListNode n = m.getIntersectionNode(a, b);
         System.out.println(n.val);
     }
 }
