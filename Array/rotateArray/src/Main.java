@@ -1,26 +1,32 @@
+import java.util.Arrays;
+
 public class Main {
 
 
-     static void rotateArray(int[] a, int k)
-     {
-         int l = a.length-1;
-         int i=0, t1, t2;
-         while (i < k)
-         {
-             t1 = a[l];
-             for (int j = 0; j < a.length; j++) {
-                 t2 = a[j];
-                 a[j] = t1;
-                 t1 = t2;
-             }
-             i++;
-         }
-     }
-    public static void main(String[] args) {
-         int[] ip = new int[] {1,2,3,4,5,6,7};
-	    rotateArray(ip,3);
-        for (int i = 0; i <ip.length ; i++) {
-            System.out.print(ip[i] + " , " );
+    public void rotate(int[] a, int k) {
+        if ( a == null || a.length == 0 || k ==0) return;
+        int l = a.length-1;
+        k = k % (l+1);
+        reverse(a, 0, l-k);
+        reverse(a,l-k+1,l);
+        reverse(a,0,l);
+    }
+
+    private void reverse(int[] a, int i, int j) {
+        while (i < j) {
+            int t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+            i++;
+            j--;
         }
+    }
+
+    public static void main(String[] args) {
+        int[] ip = new int[]{1, 2, 3, 4, 5, 6, 7};
+        Main m = new Main();
+        m.rotate(ip, 3);
+        System.out.println(Arrays.toString(ip));
+
     }
 }
