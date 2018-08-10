@@ -12,7 +12,6 @@ public class Trie {
 
         public TrieNode() {
             children = new HashMap<Character, TrieNode>();
-            //System.out.println("Created node for " + c);
         }
 
         private TrieNode appendChar(char c) {
@@ -71,6 +70,7 @@ public class Trie {
         }
         return node.isWord;
     }
+
     @Override
     public String toString() {
         return root.toString();
@@ -86,7 +86,8 @@ public class Trie {
         dict.add("GOPRO");
 
         System.out.println(dict);
-        System.out.println(dict.prefixExist("APL"));
-        System.out.println(dict.wordExist("CISCO"));
+        System.out.println(dict.prefixExist("GO"));
+        System.out.println(dict.wordExist("GOOG"));
+        System.out.println(dict.wordExist("GOOGLE"));
     }
 }
