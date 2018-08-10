@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -42,7 +41,7 @@ public class Trie {
         root = new TrieNode();
     }
 
-    public void add(String word) {
+    public void insert(String word) {
         TrieNode node = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
@@ -51,7 +50,7 @@ public class Trie {
         node.isWord = true;
     }
 
-    public boolean prefixExist(String prefix) {
+    public boolean startsWith(String prefix) {
         TrieNode node = root;
         for (int i = 0; i < prefix.length(); i++) {
             char c = prefix.charAt(i);
@@ -61,7 +60,7 @@ public class Trie {
         return true;
     }
 
-    public boolean wordExist(String word) {
+    public boolean search(String word) {
         TrieNode node = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
@@ -78,16 +77,16 @@ public class Trie {
 
     public static void main(String[] args) {
         Trie dict = new Trie();
-        dict.add("APPLE");
-        dict.add("APTECH");
-        dict.add("CISCO");
-        dict.add("CITRIX");
-        dict.add("GOOGLE");
-        dict.add("GOPRO");
+        dict.insert("APPLE");
+        dict.insert("APTECH");
+        dict.insert("CISCO");
+        dict.insert("CITRIX");
+        dict.insert("GOOGLE");
+        dict.insert("GOPRO");
 
         System.out.println(dict);
-        System.out.println(dict.prefixExist("GO"));
-        System.out.println(dict.wordExist("GOOG"));
-        System.out.println(dict.wordExist("GOOGLE"));
+        System.out.println(dict.startsWith("GO"));
+        System.out.println(dict.search("GOOG"));
+        System.out.println(dict.search("GOOGLE"));
     }
 }
