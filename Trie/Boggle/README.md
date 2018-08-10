@@ -1,4 +1,4 @@
-#Boggle Solver
+# Boggle Solver  
 Given a dictionary, a method to do lookup in dictionary and a M x N board where every cell has one character.
 Find all possible words that can be formed by a sequence of adjacent characters.
 Note that we can move to any of 8 adjacent characters, but a word should not have multiple instances of same cell.
@@ -6,7 +6,7 @@ Note that we can move to any of 8 adjacent characters, but a word should not hav
 Example:
 
 ![](https://www.geeksforgeeks.org/wp-content/uploads/Boggle.png) 
-
+``` 
 Input: dictionary[] = {"GEEKS", "FOR", "QUIZ", "GO"};
        boggle[][]   = {{'G','I','Z'},
                        {'U','E','K'},
@@ -17,5 +17,18 @@ Input: dictionary[] = {"GEEKS", "FOR", "QUIZ", "GO"};
 Output:  Following words of dictionary are present
          GEEKS
          QUIZ
+         
+        
+Input: 
+words = ["oath","pea","eat","rain"] and board =
+[
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+]
 
+Output: ["eat","oath"] 
+         
+```
 [Solution](./src/Boggle.java)
