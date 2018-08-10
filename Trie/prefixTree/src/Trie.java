@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -5,46 +6,44 @@ public class Trie {
 
     TrieNode root;
 
-    class TrieNode{
-        char c ;
-        HashMap<Character,TrieNode> map;
+    class TrieNode {
+        HashMap<Character, TrieNode> children;
         boolean isWord;
-        public TrieNode(char c)
-        {
-            this.c = c;
-            map = new HashMap<Character, TrieNode>();
+
+        public TrieNode() {
+            children = new HashMap<Character, TrieNode>();
             //System.out.println("Created node for " + c);
         }
 
-        private TrieNode appendChar(char c){
-            TrieNode newnode;
-            if (map.containsKey(c))
-                newnode = map.get(c);
-            else
-                newnode =  new TrieNode(c);
-            map.put(c, newnode);
-            return newnode;
-        }
-        private TrieNode exists(char c){
-            return map.get(c);
+        private TrieNode appendChar(char c) {
+            TrieNode n = children.get(c);
+            if (n == null) {
+                n = new TrieNode();
+                children.put(c, n);
+            }
+            return n;
         }
 
+        private TrieNode exists(char c) {
+            return children.get(c);
+        }
 
-        public String toString(){
-            Set<Character> set = map.keySet();
-            StringBuffer sb = new StringBuffer();
+        @Override
+        public String toString() {
+            Set<Character> set = children.keySet();
+            StringBuilder sb = new StringBuilder(set.size());
             for (char c : set)
-                sb.append(c);
-            return "C : " + c + " [" + sb.toString() + " ]";
+                sb.append(c + ",");
+            return sb.toString();
         }
 
     }
 
-    public Trie(){
-        root = new TrieNode(' ');
+    public Trie() {
+        root = new TrieNode();
     }
 
-    public void add(String word){
+    public void add(String word) {
         TrieNode node = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
@@ -53,9 +52,8 @@ public class Trie {
         node.isWord = true;
     }
 
-    public boolean prefixExist(String prefix){
+    public boolean prefixExist(String prefix) {
         TrieNode node = root;
-        boolean exists = false;
         for (int i = 0; i < prefix.length(); i++) {
             char c = prefix.charAt(i);
             node = node.exists(Character.toUpperCase(c));
@@ -64,15 +62,18 @@ public class Trie {
         return true;
     }
 
-    public boolean wordExist(String word){
+    public boolean wordExist(String word) {
         TrieNode node = root;
-        boolean exists = false;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             node = node.exists(Character.toUpperCase(c));
             if (node == null) return false;
         }
-        return node.isWord ? true : false;
+        return node.isWord;
+    }
+    @Override
+    public String toString() {
+        return root.toString();
     }
 
     public static void main(String[] args) {
@@ -84,8 +85,8 @@ public class Trie {
         dict.add("GOOGLE");
         dict.add("GOPRO");
 
-        boolean exists = dict.prefixExist("APPL");
-        boolean word = dict.wordExist("CISCO");
-        System.out.println(word);
+        System.out.println(dict);
+        System.out.println(dict.prefixExist("APL"));
+        System.out.println(dict.wordExist("CISCO"));
     }
 }
