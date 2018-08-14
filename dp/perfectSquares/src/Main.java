@@ -12,7 +12,7 @@ public class Main {
             for (int j = 1; i - j * j >= 0; j++){
                 min = Math.min(min, dp[i - j * j] + 1);
                 dp[i] = min;
-                System.out.println("dp[" + i + "] = " + min);
+                System.out.println("dp[" + i + "] = " + dp[i]);
             }
         }
         return dp[n];
