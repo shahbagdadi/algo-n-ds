@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CountMinCoin {
 
     public static int countMinCount(int[] coins, int target)
@@ -12,6 +14,7 @@ public class CountMinCoin {
             }
             dp[t] = (min != Integer.MAX_VALUE) ? min+1 : min;
         }
+        System.out.println(Arrays.toString(dp));
         return dp[target];
     }
 
@@ -21,16 +24,17 @@ public class CountMinCoin {
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < coins.length; i++)
             min = Math.min(min, countMinCountR(coins,target - coins[i]));
-        min = (min!=Integer.MAX_VALUE) ?  min+1 :  min;
+        if (min!=Integer.MAX_VALUE)
+            min = min+1;
         return min;
     }
 
     public static void main(String[] args) {
-        int[] coins = new int[]{2,3};
-        int cntr = countMinCountR(coins, 4);
+        int[] coins = new int[]{9,6,5,1};
+        int cntr = countMinCountR(coins, 11);
         System.out.println(cntr);
 
-        int cnt = countMinCount(coins,4);
+        int cnt = countMinCount(coins,11);
         System.out.println(cnt);
     }
 }
