@@ -38,19 +38,18 @@ public class Main {
 
 
     // T - O(n^2)  S - O(n)
-    public boolean wordBreakDP(String s, List<String> wordList) {
+    public boolean wordBreakDP(String str, List<String> wordList) {
         Set<String> dict = new HashSet<>(wordList);
-        boolean[] dp = new boolean[s.length() + 1];
+        boolean[] dp = new boolean[str.length() + 1];
         dp[0] = true;
-        for (int end = 1; end < dp.length; end++) {
-            for (int start = 0; start < end; start++) {
-                if (dp[start] && dict.contains(s.substring(start, end))) {
-                    dp[end] = true;
-                    break;
-                }
+        for (int s = 0; s < dp.length; s++) {
+            for (int e = s + 1; e < dp.length; e++) {
+                if (dp[s] && dict.contains(str.substring(s, e)))
+                    dp[e] = true;
             }
         }
-        return dp[s.length()];
+        System.out.println(Arrays.toString(dp));
+        return dp[str.length()];
     }
 
     // T - O(n^2)  S - O(n)
