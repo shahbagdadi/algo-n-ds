@@ -5,14 +5,14 @@ public class Main {
         return Paths(a, 0, 0);
     }
 
-    int Paths(int[][] a, int i, int j) {
-        if ((i == a.length - 1) && (j == a[0].length - 1))
+    int Paths(int[][] a, int r, int c) {
+        if ((r == a.length - 1) && (c == a[0].length - 1)) // reached dest
             return cnt++;
-        else if ((i == a.length) || (j == a[0].length) || (a[i][j] == 1))
+        else if ((r == a.length) || (c == a[0].length) || (a[r][c] == 1)) // reached end or blocked
             return 0;
         else {
-            Paths(a, i, j + 1);
-            Paths(a, i + 1, j);
+            Paths(a, r, c + 1);
+            Paths(a, r + 1, c);
         }
         return cnt;
     }
@@ -21,15 +21,15 @@ public class Main {
         if (a[0][0] == 1) return 0;
         int[][] dp = new int[a.length][a[0].length];
         dp[0][0] = 1;
-        for (int i = 0; i < dp.length; i++) {
-            for (int j = 0; j < dp[0].length; j++) {
-                if (a[i][j] == 1) dp[i][j] = 0;
-                else if (i == 0 && j >0 )
-                    dp[i][j] = dp[i][j - 1];
-                else if (j == 0 && i > 0)
-                    dp[i][j] = dp[i - 1][j];
-                else if ( i > 0 && j > 0)
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+        for (int r = 0; r < dp.length; r++) {
+            for (int c = 0; c < dp[0].length; c++) {
+                if (a[r][c] == 1) dp[r][c] = 0;
+                else if (r == 0 && c >0 )
+                    dp[r][c] = dp[r][c - 1];
+                else if (c == 0 && r > 0)
+                    dp[r][c] = dp[r - 1][c];
+                else if ( r > 0 && c > 0)
+                    dp[r][c] = dp[r - 1][c] + dp[r][c - 1];
             }
         }
         return dp[a.length - 1][a[0].length - 1];
@@ -39,10 +39,10 @@ public class Main {
         if (a[0][0] == 1) return 0;
         int[]dp = new int[a[0].length];
         dp[0] = 1;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[0].length; j++) {
-                if (a[i][j] == 1) dp[j] = 0;
-                else if (j > 0) dp[j] += dp[j-1];
+        for (int r = 0; r < a.length; r++) {
+            for (int c = 0; c < a[0].length; c++) {
+                if (a[r][c] == 1) dp[c] = 0;
+                else if (c > 0) dp[c] += dp[c-1];
             }
         }
         return dp[a[0].length - 1];
