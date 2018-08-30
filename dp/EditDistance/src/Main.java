@@ -5,8 +5,7 @@ public class Main {
     }
 
     private int helper(String s1, String s2, int m, int n) {
-        if (m == 0) return n;
-        else if (n == 0) return m;
+        if (m == 0 || n == 0) return Math.abs(m-n);
         else if (s1.charAt(m - 1) == s2.charAt(n - 1))
             return helper(s1, s2, m - 1, n - 1);
         else
@@ -23,8 +22,7 @@ public class Main {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (i == 0) dp[i][j] = j;
-                else if (j == 0) dp[i][j] = i;
+                if (i == 0 || j ==0 ) dp[i][j] = (i == 0) ? j : i ;
                 else if (s1.charAt(i - 1) == s2.charAt(j - 1))
                     dp[i][j] = dp[i - 1][j - 1];
                 else
