@@ -38,8 +38,8 @@ public class Main {
     public static void main(String[] args) {
 
 //        int [] a = {4, 1, -5, 6, -11, 3};
-        int[] a  = {2, 4, 16};
-//        int[] a = {1, 5, 11, 5};
+//        int[] a  = {2, 4, 16};
+        int[] a = {1, 5, 11, 5};
 //        int[] a = {1, 2, 3, 5};
         Main m = new Main();
         //boolean r = m.canPartition(a);
