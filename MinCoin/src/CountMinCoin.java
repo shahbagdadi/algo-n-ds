@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class CountMinCoin {
 
+    // T - O(T * n)   S - O(T)
     public static int countMinCount(int[] coins, int target)
     {
         int[] dp = new int[target+1];
@@ -18,6 +19,7 @@ public class CountMinCoin {
         return dp[target];
     }
 
+    // T - O(T^n)   S - O(n)
     public static int countMinCountR(int[] coins, int target)
     {
         if (target <= 0) return 0;
