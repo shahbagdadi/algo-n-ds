@@ -25,6 +25,7 @@ public class Main {
         return f;
     }
 
+    // T - O(n^2)    S - O(n^2)
     private int helperM(int[] a, int s, int e, Integer[][] memo) {
         if (s == e) return a[s];
         if (memo[s][e] != null) return memo[s][e];
@@ -53,14 +54,15 @@ public class Main {
     // T - O(n^2)    S - O(n)
     public boolean winner1DP(int[] a) {
         int[] dp = new int[a.length];
-        for (int s = a.length; s >= 0; s--) {
+        for (int s = a.length -1; s >= 0; s--) {
+            dp[s] = a[s];
             for (int e = s + 1; e < a.length; e++) {
                 int c1 = a[s] - dp[e];
                 int c2 = a[e] - dp[e - 1];
                 dp[e] = Math.max(c1, c2);
             }
         }
-        System.out.println(Arrays.toString(dp));
+        //System.out.println(Arrays.toString(dp));
         return dp[a.length - 1] >= 0;
     }
 
