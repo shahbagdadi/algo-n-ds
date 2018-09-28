@@ -6,21 +6,17 @@ import java.util.Arrays;
  */
 public class Main {
 
-    public void printPerm(char[] a, int i) {
+    public void backtrack(char[] a, int i) {
         if (i == a.length) {
             System.out.println(Arrays.toString(a));
-            return;
+        } else {
+            for (int j = i; j < a.length; j++) {
+                swap(a, i, j);
+                backtrack(a, i + 1);
+                swap(a, i, j);
+            }
         }
-
-        for (int j = i; j < a.length; j++) {
-            swap(a, i, j);
-            printPerm(a, i + 1);
-            swap(a, i, j);
-
-        }
-
     }
-
 
     void swap(char[] a, int i, int j) {
         char t = a[i];
@@ -29,9 +25,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         Main m = new Main();
         char[] ca = {'a', 'b', 'c'};
-        m.printPerm(ca, 0);
+        m.backtrack(ca, 0);
     }
 }
