@@ -15,7 +15,7 @@ public class Main {
         if(head==null || head.next==null)
             return head;
         ListNode nextNode=head.next;
-        ListNode newHead=reverseList(nextNode);
+        ListNode newHead=rReverseList(nextNode);
         nextNode.next=head;
         head.next=null;
         return newHead;
@@ -29,7 +29,7 @@ public class Main {
         n2.next = n3;
         Main m = new Main();
         ListNode h = m.reverseList(n1);
-        //ListNode h = m.rReverseList(n1);
+//        ListNode h = m.rReverseList(n1);
         while (h!=null) {
             System.out.print(h.val + " -> ");
             h = h.next;
