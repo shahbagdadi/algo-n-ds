@@ -51,7 +51,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main m = new Main();
-        int[] ip = {3,1,2};
+        int[] ip = {1,2,3};
         System.out.println(Arrays.toString(ip));
         System.out.println("========== PowerSet ===========");
         List<List<Integer>> subsets = m.subsets(ip);
