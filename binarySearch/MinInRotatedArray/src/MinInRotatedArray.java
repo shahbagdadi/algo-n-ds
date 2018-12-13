@@ -3,15 +3,16 @@ public class MinInRotatedArray {
     public int findMin(int[] a) {
         int l = 0;
         int h = a.length - 1;
-        while (l < h - 1) {
-            int m = l + (h - l) / 2;
-            System.out.println("l = " + l + " m = " + m + " h = " + h);
+        while (h - l > 1)
+        {
+            int m = (h + l) / 2;
+            //System.out.println("l = " + l + " m = " + m + " h = " + h);
             if (a[m] > a[h])
                 l = m;
             else
                 h = m;
         }
-        System.out.println("l = " + l + " h = " + h);
+        //System.out.println("l = " + l + " h = " + h);
         return (a[l] > a[h]) ? a[h] : a[l];
     }
 

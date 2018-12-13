@@ -1,25 +1,28 @@
 public class Main {
 
-    public int search(int[] nums, int target) {
+    public int search(int[] a, int target) {
+        if (a == null || a.length == 0) return -1;
         // find the pivot
         int l = 0;
-        int h = nums.length - 1;
-        while (l < h) {
+        int h = a.length - 1;
+        while ( h - l > 1) 
+        {
             int m = (l + h) / 2;
-            if (nums[m] > nums[h])
-                l = m + 1;
+            if (a[m] > a[h])
+                l = m;
             else
                 h = m;
         }
-//        System.out.println("rotation at " + l);
-        int rot = l;
+
+        int pivot = (a[l] < a[h]) ? l : h;
+        //System.out.println("pivot at " + pivot);
         l = 0;
-        h = nums.length - 1;
+        h = a.length - 1;
         while (l <= h) {
             int m = (l + h) / 2;
-            int rm = (m + rot) % nums.length;
-            if (nums[rm] == target) return rm;
-            else if (nums[rm] > target)
+            int rm = (m + pivot) % a.length;
+            if (a[rm] == target) return rm;
+            else if (a[rm] > target)
                 h = m - 1;
             else
                 l = m + 1;
