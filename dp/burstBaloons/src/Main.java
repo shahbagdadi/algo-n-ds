@@ -18,7 +18,7 @@ public class Main {
         for (int i = s+1; i < e; i++) {
             ans = Math.max(ans,
                     num[s] * num[i] * num[e] + // the last = 1 * num[i] * 1
-                    burst(memo,num,s,i) + burst(memo,num,i,e) ); // 
+                    burst(memo,num,s,i) + burst(memo,num,i,e) ); //
         }
         memo[s][e] = ans;
         return ans;
