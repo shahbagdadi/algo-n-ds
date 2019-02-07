@@ -10,7 +10,7 @@ public class Main {
             sum = s;
         }
     }
-    
+
     public List<Integer> countSmaller(int[] nums) {
         Integer[] ans = new Integer[nums.length];
         Node root = null;
