@@ -48,9 +48,7 @@ public class skyline {
             //System.out.println( "X = " + h[0] + " H = " + h[1] );
             // If building start
             if (h[1] < 0) {
-                Integer cnt = heightMap.get(-h[1]);
-                // there could be more than 1 bldg of same height
-                cnt = (cnt == null) ? 1 : cnt + 1;
+                Integer cnt = heightMap.getOrDefault(-h[1],0) +1;  // there could be more than 1 bldg of same height
                 heightMap.put(-h[1], cnt);
             } else {
                 // handle building end
