@@ -36,7 +36,7 @@ public class skyline {
         TreeMap<Integer, Integer> heightMap = new TreeMap<>(Collections.reverseOrder());
 
         // put 0 on top. If no bldgs on skyline this is what we get
-        heightMap.put(0, 1);
+        heightMap.put(0, 0);
 
         // holds max height from previous iteration
         int prevHeight = 0;
