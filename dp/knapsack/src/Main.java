@@ -41,8 +41,8 @@ public class Main {
 //        System.out.println(m.knapSackDP(wt1, val1, 2));
 
 
-        int[] wt1 = {1, 3, 4, 5};
-        int[] val1 = {1, 4, 5, 7};
+        int[] wt1 = {1, 2, 4, 5};
+        int[] val1 = {2, 3, 5, 6};
         System.out.println(m.knapSack(wt1, val1, 7));
         System.out.println(m.knapSackDP(wt1, val1, 7));
     }
