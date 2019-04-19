@@ -2,13 +2,13 @@ public class Main {
 
     // T - O(n^2)    S - O(n)
     public int knapSack(int wt[], int val[], int w) {
-        return helper(wt, val,  wt.length - 1,w);
+        return helper(wt, val,  wt.length ,w);
     }
 
     private int helper(int[] wt, int[] val, int n, int mw) {
-        if (n < 0 || mw == 0) return 0;
-        if (wt[n] > mw) return helper(wt, val, n - 1,mw);
-        return Math.max(val[n] + helper(wt, val,  n - 1,mw - wt[n]), helper(wt, val, n - 1, mw));
+        if (n == 0 || mw == 0) return 0;
+        if (wt[n-1] > mw) return helper(wt, val, n - 1,mw);
+        return Math.max(val[n-1] + helper(wt, val,  n - 1,mw - wt[n-1]), helper(wt, val, n - 1, mw));
     }
 
 
