@@ -1,6 +1,6 @@
 public class Main {
 
-    // T - O(n^2)    S - O(n)
+    // T - O(2^n)    S - O(n)
     public int knapSack(int wt[], int val[], int w) {
         return helper(wt, val,  wt.length ,w);
     }
@@ -12,7 +12,7 @@ public class Main {
     }
 
 
-    // T - O(n) S - O(n * w)
+    // T - O(n * w) S - O(n * w)
     public int knapSackDP(int wt[], int val[], int mw) {
         // init DP
         int[][] dp = new int[wt.length + 1][mw + 1];
