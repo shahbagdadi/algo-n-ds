@@ -22,14 +22,13 @@ public class CountMinCoin {
     // T - O(T^n)   S - O(n)
     public static int countR(int[] coins, int t)
     {
-        if (t < 0) return -1;
         if (t == 0) return  0;
         int min = Integer.MAX_VALUE;
         for (int coin : coins) {
-            int res = countR(coins, t - coin);
-            if (res >=0 && res < min)
-                min = 1 + res;
+            if (t - coin >= 0)
+                min = Math.min(min,countR(coins,t-coin));
         }
+        min =  (min != Integer.MAX_VALUE) ? min+1 : min;
         return min;
     }
 
