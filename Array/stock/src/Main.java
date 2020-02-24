@@ -15,5 +15,6 @@ public class Main {
         Main m = new Main();
         int[] prices = new int[]{2, 1, 3, 5, 7};
         System.out.println(m.maxProfit(prices));
+        System.out.println();
     }
 }

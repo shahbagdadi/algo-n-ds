@@ -21,7 +21,8 @@ public class Pow {
         if ( n % 2 == 0) {
             int y =  rpow(x,n/2);
             return y * y;
-        })
+        }
+        return 0;
     }
 
 
